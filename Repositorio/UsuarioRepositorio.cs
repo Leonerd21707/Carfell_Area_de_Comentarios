@@ -5,6 +5,36 @@ using Senai.Sprint4.Carfel.Models;
 
 namespace Senai.Sprint4.Carfel.Repositorio {
     public class UsuarioRepositorio : IUsuario {
+        
+        public UsuarioModel BuscarPorId(int id)
+        {
+              using (StreamReader sr = new StreamReader ("usuarios.csv")) {
+                while (!sr.EndOfStream) {
+                    var linha = sr.ReadLine ();
+
+                    if (string.IsNullOrEmpty (linha)) {
+                        continue;
+                    }
+
+                    string[] dados = linha.Split (";");
+
+                    if (int.Parse(dados[0]) == id) {
+                        UsuarioModel usuario = new UsuarioModel (
+                            id: int.Parse (dados[0]),
+                            nome: dados[1],
+                            email: dados[2],
+                            senha: dados[3],
+                            dataCriacao: DateTime.Parse (dados[4])
+                        );
+
+                        return usuario;
+                    }
+                }
+            }
+
+            return null;
+        }
+
         public UsuarioModel Cadastar (UsuarioModel usuario) {
             //verifica se existe o arquivo 
             if (File.Exists ("usuarios.csv")) {
@@ -49,7 +79,6 @@ namespace Senai.Sprint4.Carfel.Repositorio {
             }
 
             return null;
-            throw new System.NotImplementedException ();
         }
     }
 }

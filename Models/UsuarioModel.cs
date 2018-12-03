@@ -26,5 +26,9 @@ namespace Senai.Sprint4.Carfel.Models {
             this.DataCriacao = DataCriacao;
         }
 
+        //Comentario
+        public UsuarioModel () {
+
+        }
     }
 }

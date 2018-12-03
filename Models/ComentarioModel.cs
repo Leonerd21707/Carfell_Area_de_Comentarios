@@ -7,10 +7,13 @@ namespace Senai.Sprint4.Carfel.Models {
         public string Comentario { get; set; }
         public DateTime DataCriacao { get; set; }
 
-        public ComentarioModel (string nome, string comentario, DateTime dataCriacao) {
-           this.Nome = nome;
+        public UsuarioModel Usuario { get; set; }
+
+        public ComentarioModel (string nome, string comentario, DateTime dataCriacao, UsuarioModel usuario) {
+            this.Nome = nome;
             this.Comentario = comentario;
             this.DataCriacao = dataCriacao;
+            Usuario = usuario;
 
         }
     }
