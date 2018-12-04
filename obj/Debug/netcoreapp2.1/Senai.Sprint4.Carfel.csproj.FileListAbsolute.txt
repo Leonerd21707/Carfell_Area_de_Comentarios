@@ -25,3 +25,5 @@ C:\Users\FIC\Documents\Projetos_SENAI\projetos\Senai.Sprint4.Carfel\obj\Debug\ne
 C:\Users\FIC\Documents\Projetos_SENAI\projetos\Senai.Sprint4.Carfel\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\Login.g.cshtml.cs
 C:\Users\FIC\Documents\Projetos_SENAI\projetos\Senai.Sprint4.Carfel\obj\Debug\netcoreapp2.1\Razor\Views\Shared\MasterPageLogado.g.cshtml.cs
 C:\Users\FIC\Documents\Projetos_SENAI\projetos\Senai.Sprint4.Carfel\obj\Debug\netcoreapp2.1\Razor\Views\Comentario\Comentar.g.cshtml.cs
+C:\Users\FIC\Documents\Projetos_SENAI\projetos\Senai.Sprint4.Carfel\obj\Debug\netcoreapp2.1\Razor\Views\Administrador\Cadastrar.g.cshtml.cs
+C:\Users\FIC\Documents\Projetos_SENAI\projetos\Senai.Sprint4.Carfel\obj\Debug\netcoreapp2.1\Razor\Views\Administrador\Login.g.cshtml.cs

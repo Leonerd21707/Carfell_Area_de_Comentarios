@@ -32,7 +32,6 @@ namespace Senai.Sprint4.Carfel.Controllers {
             int idUsuario = int.Parse(HttpContext.Session.GetString ("idUsuario"));
             UsuarioModel usuario = UsuarioRepositorio.BuscarPorId(idUsuario);
             ComentarioModel comentario = new ComentarioModel (
-                nome: form["nome"], 
                 comentario: form["comentario"], 
                 dataCriacao: DateTime.Now, 
                 usuario: usuario);

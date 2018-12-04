@@ -35,7 +35,7 @@ namespace Senai.Sprint4.Carfel.Repositorio {
             return null;
         }
 
-        public UsuarioModel Cadastar (UsuarioModel usuario) {
+        public UsuarioModel Cadastrar (UsuarioModel usuario) {
             //verifica se existe o arquivo 
             if (File.Exists ("usuarios.csv")) {
                 //se o arquivo existir pega o numero de linhas e incrementa + 1
@@ -54,6 +54,7 @@ namespace Senai.Sprint4.Carfel.Repositorio {
 
 
         public UsuarioModel Login (string email, string senha) {
+            //percorre o arquivo atras de um usuario cadastrado
             using (StreamReader sr = new StreamReader ("usuarios.csv")) {
                 while (!sr.EndOfStream) {
                     var linha = sr.ReadLine ();

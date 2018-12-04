@@ -5,7 +5,7 @@ namespace Senai.Sprint4.Carfel.Interfaces {
 
         UsuarioModel BuscarPorId(int id);
 
-        UsuarioModel Cadastar (UsuarioModel usuario);
+        UsuarioModel Cadastrar (UsuarioModel usuario);
 
         UsuarioModel Login (string email, string senha);
 

@@ -1,14 +1,13 @@
-<link href="/css/CadastroUsuario.css" rel="stylesheet">
 @{
-    ViewBag.Title = "Cadastrar Usuário";
+    ViewBag.Title = "Cadastrar Administrador";
     Layout = "MasterPageDeslogado";
 }
 
-<h1> Cadastro de Usuarios</h1>
+<h1> Cadastro de Administradores</h1>
 
 @ViewBag.Mensagem
 
-<form class="info"  action="/Usuario/Cadastrar" method="POST">
+<form action="/Administrador/Cadastrar" method="POST">
     <label>
         Nome
         <input type="text"  name="nome">
@@ -25,6 +24,6 @@
     </label>
     
 
-    <input class="enviar" type="submit" value="Enviar">
+    <input type="submit" value="Enviar">
 
 </form>

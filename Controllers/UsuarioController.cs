@@ -17,7 +17,7 @@ namespace Senai.Sprint4.Carfel.Controllers {
             UsuarioModel usuario = new UsuarioModel (nome: form["nome"], email: form["email"], senha: form["senha"], dataCriacao: DateTime.Now);
 
             UsuarioRepositorio usuarioRepositorio = new UsuarioRepositorio ();
-            usuarioRepositorio.Cadastar (usuario);
+            usuarioRepositorio.Cadastrar (usuario);
 
             ViewBag.Mensagem = "Usuário Cadastrado";
 
