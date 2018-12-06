@@ -8,17 +8,14 @@ using Senai.Sprint4.Carfel.Repositorio;
 namespace Senai.Sprint4.Carfel.Controllers {
     public class ComentarioController : Controller {
 
-        private IComentario ComentarioRepositorio {get; set;}
+        private IComentario ComentarioRepositorio { get; set; }
 
-        private IUsuario UsuarioRepositorio {get; set;}
+        private IUsuario UsuarioRepositorio { get; set; }
 
-        public ComentarioController()
-        {
-            ComentarioRepositorio = new ComentarioRepositorioCSV();
-            UsuarioRepositorio = new UsuarioRepositorio();
+        public ComentarioController () {
+            ComentarioRepositorio = new ComentarioRepositorioCSV ();
+            UsuarioRepositorio = new UsuarioRepositorio ();
         }
-
-        
 
         //responsavel pelos comentarios
         [HttpGet]
@@ -29,18 +26,38 @@ namespace Senai.Sprint4.Carfel.Controllers {
 
         [HttpPost]
         public ActionResult Comentar (IFormCollection form) {
-            int idUsuario = int.Parse(HttpContext.Session.GetString ("idUsuario"));
-            UsuarioModel usuario = UsuarioRepositorio.BuscarPorId(idUsuario);
+            int idUsuario = int.Parse (HttpContext.Session.GetString ("idUsuario"));
+            UsuarioModel usuario = UsuarioRepositorio.BuscarPorId (idUsuario);
             ComentarioModel comentario = new ComentarioModel (
-                comentario: form["comentario"], 
-                dataCriacao: DateTime.Now, 
-                usuario: usuario);
-            
+                comentario: form["comentario"],
+                dataCriacao: DateTime.Now,
+                usuario: usuario,
+                aprovado: false);
 
-            
             ComentarioRepositorio.Comentar (comentario);
 
             return View ();
+        }
+
+        [HttpGet]
+        public ActionResult Alterar (int id) {
+
+            if (id == 0) {
+                TempData["Mensagem"] = "Informe um Comentario para Alterar";
+                return RedirectToAction ("Listar");
+            }
+
+            ComentarioRepositorioCSV comentarioRepositorioCSV = new ComentarioRepositorioCSV ();
+            ComentarioModel comentario = UsuarioRepositorio.BuscarPorId (id);
+
+            if (comentario != null) {
+                ViewBag.Comentario = comentario;
+            } else {
+                TempData["Mensagem"] = "Comentario não encontrado";
+                return RedirectToAction ("Listar");
+            }
+
+            return RedirectToAction ("Comentar");
         }
 
     }

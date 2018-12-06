@@ -24,7 +24,8 @@ namespace Senai.Sprint4.Carfel.Repositorio {
                             nome: dados[1],
                             email: dados[2],
                             senha: dados[3],
-                            dataCriacao: DateTime.Parse (dados[4])
+                            dataCriacao: DateTime.Parse (dados[4]),
+                            administrador: bool.Parse(dados[5])
                         );
 
                         return usuario;
@@ -46,7 +47,7 @@ namespace Senai.Sprint4.Carfel.Repositorio {
             //grava as informações no arquivo
             using (StreamWriter sw = new StreamWriter ("usuarios.csv", true)) {
                 usuario.DataCriacao = DateTime.Now;
-                sw.WriteLine ($"{usuario.Id};{usuario.Nome};{usuario.Email};{usuario.Senha};{usuario.DataCriacao}");
+                sw.WriteLine ($"{usuario.Id};{usuario.Nome};{usuario.Email};{usuario.Senha};{usuario.DataCriacao};{usuario.Administrador}");
             }
             return usuario;
         }
@@ -71,7 +72,8 @@ namespace Senai.Sprint4.Carfel.Repositorio {
                             nome: dados[1],
                             email: dados[2],
                             senha: dados[3],
-                            dataCriacao: DateTime.Parse (dados[4])
+                            dataCriacao: DateTime.Parse (dados[4]),
+                            administrador: bool.Parse(dados[5])
                         );
 
                         return usuario;

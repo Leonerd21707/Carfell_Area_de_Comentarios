@@ -14,14 +14,14 @@ namespace Senai.Sprint4.Carfel.Controllers {
 
         [HttpPost]
         public ActionResult Cadastrar (IFormCollection form) {
-            UsuarioModel usuario = new UsuarioModel (nome: form["nome"], email: form["email"], senha: form["senha"], dataCriacao: DateTime.Now);
+            UsuarioModel usuario = new UsuarioModel (nome: form["nome"], email: form["email"], senha: form["senha"], dataCriacao: DateTime.Now, administrador: false);
 
             UsuarioRepositorio usuarioRepositorio = new UsuarioRepositorio ();
             usuarioRepositorio.Cadastrar (usuario);
 
             ViewBag.Mensagem = "Usuário Cadastrado";
 
-            return RedirectToAction ("Usuario/Login");
+            return RedirectToAction ("Login");
         }
 
         //responsavel pelo login do usuario
@@ -37,6 +37,8 @@ namespace Senai.Sprint4.Carfel.Controllers {
 
             if (usuario != null) {
                 HttpContext.Session.SetString ("idUsuario", usuario.Id.ToString ());
+                HttpContext.Session.SetString ("nomeUsuario", usuario.Nome.ToString ());
+                HttpContext.Session.SetString ("emailUsuario", usuario.Email.ToString ());
 
                 return RedirectToAction ("Comentar", "Comentario");
             }
